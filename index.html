@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>点数入力</title>
+    </head>
+    <body>
+        <h2>テストの点数を入力してください</h2>
+        <form>
+            <label for="num">点数: </label>
+            <input type="text" id="num">
+            <input type="button" value="決定" onclick="handan(num.value)">
+            <br>
+            <img id="image_file"src=""/>
+        </form>
+    </body>
+
+    <script>
+        var img;
+        
+        function handan(point2){
+        
+        
+    const txt = document.getElementById('num').value;
+      if (!txt) { return; }
+
+      // 文字列をBlob化
+      const blob = new Blob([txt], { type: 'text/plain' });
+
+      // ダウンロード用のaタグ生成
+      const a = document.createElement('a');
+      a.href =  URL.createObjectURL(blob);
+      a.download = 'test1.txt';
+      a.click();
+
+        }
+    </script>
+
+</html>
